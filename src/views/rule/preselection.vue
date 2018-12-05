@@ -59,7 +59,7 @@
             <el-input size="small" v-model="item.number" style="width: 80%;" class="error-border"></el-input>
           </el-col>
           <el-col :span="3">
-            <el-select size="small" v-model="item.ruleGroupId" class="error-border">
+            <el-select size="small" v-model="item.ruleDunFlag" class="error-border">
               <el-option value="1" label="入催"></el-option>
               <el-option value="0" label="不入催"></el-option>
             </el-select>
@@ -144,7 +144,7 @@
           rulePriority : 0,   // 优先级
           ruleType: '1',   // 第1套规则:1, 第2套规则:2, 第3套规则:3
           ruleExpression: '',  // 规则表达式 
-          ruleGroupId : '',  // 操作
+          ruleDunFlag : '',  // 操作
           variable: 'userMaxDefaultDays',  // 变量
           check: '',    // 判断
           number: '',    // 数值
