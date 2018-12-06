@@ -18,14 +18,14 @@
         <el-col :span="3">
           数值
         </el-col>
-        <el-col :span="2">
-          操作(Dun_flag)
+        <el-col :span="2" style="white-space: nowrap;">
+          Dun_flag
         </el-col>
-        <el-col :span="2">
-          操作(module_id)
+        <el-col :span="2" style="white-space: nowrap;">
+          module_id
         </el-col>
-        <el-col :span="2">
-          操作(aspect_flag)
+        <el-col :span="2" style="white-space: nowrap;">
+          aspect_flag
         </el-col>
         <el-col :span="6">
           配置
@@ -400,7 +400,7 @@
       height: 30px;
       z-index: 1001;
       padding: 6px 0;
-      background-color: rgba(119, 136, 153, 0.8);
+      background-color: rgba(211,211,211, 0.8);
     }
   }
 }

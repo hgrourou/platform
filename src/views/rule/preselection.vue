@@ -385,7 +385,7 @@
       height: 30px;
       z-index: 1001;
       padding: 6px 0;
-      background-color: rgba(119, 136, 153, 0.8);
+      background-color: rgba(211,211,211, 0.8);
     }
   }
 }
