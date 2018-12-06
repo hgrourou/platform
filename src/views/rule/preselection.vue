@@ -1,7 +1,8 @@
 <template>
   <div class="rule-container">
-    <div class="table-container">
-      <el-row :gutter="10">
+    <div class="table-container" v-loading="isLoadingData" element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading">
+      <el-row :gutter="10" class="table-header">
         <el-col :span="1">
           序号
         </el-col>
@@ -139,13 +140,14 @@
     data () {
       return {
         errorId: -1,
+        isLoadingData: false,
         variables: ['userMaxDefaultDays', 'userOwingAmount', 'userTag', 'modelTag', 'ownerId', 'curModule', 'curGroup', 'curCompanyId', 'companyType', 'province'],
         dataList: [{
           rulePriority : 0,   // 优先级
           ruleType: '1',   // 第1套规则:1, 第2套规则:2, 第3套规则:3
           ruleExpression: '',  // 规则表达式 
           ruleDunFlag : '',  // 操作
-          variable: 'userMaxDefaultDays',  // 变量
+          variable: '',  // 变量
           check: '',    // 判断
           number: '',    // 数值
           children: []
@@ -187,10 +189,12 @@
         }
       },
       async getRules () {
+        this.isLoadingData = true
         let { data } = await getRules({
           ruleType: 1
         })
         this.dataList = data.resultContent
+        this.isLoadingData = false
         this.dataList.forEach((item, index) => {
           if (item.ruleExpression.indexOf('==') !== -1 || item.ruleExpression.indexOf('>') !== -1 
             || item.ruleExpression.indexOf('<') !== -1 || item.ruleExpression.indexOf('!=') !== -1) {
@@ -373,6 +377,16 @@
     right: 50px;
     bottom: 0px;
     padding-bottom: 30px;
+  }
+  .table-container {
+    .table-header {
+      position: sticky;
+      top: 0;
+      height: 30px;
+      z-index: 1001;
+      padding: 6px 0;
+      background-color: rgba(119, 136, 153, 0.8);
+    }
   }
 }
 </style>
