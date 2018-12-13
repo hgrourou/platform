@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 /* Layout */
-import Layout from './views/layout/Layout'
+import Layout from '@/views/layout/Layout'
 
 Vue.use(Router)
 
@@ -50,25 +50,37 @@ export const constantRouterMap = [
     component: Layout,
     children: [
       {
-        path: 'allocationCasemodel',
-        component: () => import('@/views/rule/allocationCasemodel.vue'),
-        name: 'allocationCasemodel',
-        meta: { title: 'allocation casemodel', icon: 'icon-xinfengtianchong' }
+        path: 'test',
+        component: () => import('@/views/rule/test.vue'),
+        name: 'test',
+        meta: { title: 'test', icon: 'icon-xinfengtianchong' }
       },
     ]
   },
-  {
-    path: '/rule',
-    component: Layout,
-    children: [
-      {
-        path: 'groupDecisionmaker',
-        component: () => import('@/views/rule/groupDecisionmaker.vue'),
-        name: 'groupDecisionmaker',
-        meta: { title: 'group decisionmaker', icon: 'icon-xinfengtianchong' }
-      },
-    ]
-  },
+  // {
+  //   path: '/rule',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'allocationCasemodel',
+  //       component: () => import('@/views/rule/allocationCasemodel.vue'),
+  //       name: 'allocationCasemodel',
+  //       meta: { title: 'allocation casemodel', icon: 'icon-xinfengtianchong' }
+  //     },
+  //   ]
+  // },
+  // {
+  //   path: '/rule',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'groupDecisionmaker',
+  //       component: () => import('@/views/rule/groupDecisionmaker.vue'),
+  //       name: 'groupDecisionmaker',
+  //       meta: { title: 'group decisionmaker', icon: 'icon-xinfengtianchong' }
+  //     },
+  //   ]
+  // },
   { path: '*', redirect: '/404', hidden: true }
 ];
 export default new Router({
