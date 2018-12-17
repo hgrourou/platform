@@ -43,6 +43,7 @@
           <el-col :span="3">
             <el-select size="small" v-model="item.variable" placeholder="请选择变量"
               :filterable="true"
+              allow-create
               clearable
               class="error-border">
               <el-option
@@ -106,6 +107,7 @@
               <el-select size="small" v-model="subitem.variable" 
                 :filterable="true"
                 clearable
+                allow-create
                 placeholder="请选择变量" class="error-border">
                 <el-option
                   v-for="i in variables"

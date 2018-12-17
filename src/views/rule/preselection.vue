@@ -38,6 +38,7 @@
             <el-select size="small" v-model="item.variable" 
               :filterable="true"
               clearable
+              allow-create
               placeholder="请选择变量" class="error-border">
               <el-option
                 v-for="i in variables"
@@ -91,6 +92,7 @@
               <el-select size="small" v-model="subitem.variable" 
                 :filterable="true"
                 clearable
+                allow-create
                 placeholder="请选择变量" class="error-border">
                 <el-option
                   v-for="i in variables"
