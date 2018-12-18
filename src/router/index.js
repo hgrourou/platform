@@ -9,17 +9,17 @@ export const constantRouterMap = [
   { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
 
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/rule/preselection',
-    name: 'Dashboard',
-    hidden: true,
-    children: [{
-      path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
-    }]
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/rule/preselection',
+  //   name: 'Dashboard',
+  //   hidden: true,
+  //   children: [{
+  //     path: 'dashboard',
+  //     component: () => import('@/views/dashboard/index')
+  //   }]
+  // },
   {
     
     path: '/rule',
@@ -54,6 +54,18 @@ export const constantRouterMap = [
         component: () => import('@/views/rule/test.vue'),
         name: 'test',
         meta: { title: 'test', icon: 'icon-xinfengtianchong' }
+      },
+    ]
+  },
+  {
+    path: '/config',
+    component: Layout,
+    children: [
+      {
+        path: 'variables',
+        component: () => import('@/views/help/index.vue'),
+        name: 'config',
+        meta: { title: '配置', icon: 'icon-xinfengtianchong' }
       },
     ]
   },
