@@ -21,7 +21,6 @@ export const constantRouterMap = [
   //   }]
   // },
   {
-    
     path: '/rule',
     component: Layout,
     children: [
