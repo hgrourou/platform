@@ -1,7 +1,9 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name:{{name}}</div>
-    <div class="dashboard-text">roles:<span v-for='role in roles' :key='role'>{{role}}</span></div>
+    <!-- <div class="dashboard-text">name:{{name}}</div>
+    <div class="dashboard-text">roles:<span v-for='role in roles' :key='role'>{{role}}</span></div> -->
+    dashboard 
+    <p>敬请期待</p>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 .dashboard {
   &-container {
+    text-align: center;
     margin: 30px;
   }
   &-text {

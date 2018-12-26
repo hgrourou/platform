@@ -29,7 +29,7 @@ export function updateModuleName(data) {
  */
 export function createModule(data) {
   return request({
-    url: '/h5/module/saveList',
+    url: '/h5/module/save',
     method: 'post',
     data
   })

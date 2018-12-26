@@ -1,6 +1,9 @@
 <template>
   <div class="rule-container" v-loading="isLoadingData" element-loading-text="正在加载中"
     element-loading-spinner="el-icon-loading">
+    <div class="create-module-button">
+      <el-button size="small" type="primary" @click="createModule">创建模块</el-button>
+    </div>
     <div class="module-list">
       <el-table
         :expand-row-keys="expandRowKeys"
@@ -10,7 +13,7 @@
       >
         <el-table-column type="expand">
           <template slot-scope="props">
-            <module-container :rules="props"></module-container>
+            <module-container :module-id="props.row.id" :key="props.row.id"></module-container>
           </template>
         </el-table-column>
         <el-table-column label="模块名称" sortable prop="moduleName">
@@ -46,9 +49,6 @@
         
       </el-table>
     </div>
-    <div class="create-module-button">
-      <el-button type="primary" @click="createModule">创建模块</el-button>
-    </div>
     <create-module
       :show-dialog="showCreateModule"
       @cancelDialog = "showCreateModule = false"
@@ -60,7 +60,7 @@
 <script>
   import { getAllModules, updateModuleName, deleteModule } from '@/api/modules.js'
   import ModuleContainer from '@/components/ModuleContainer'
-  import createModule from './create-module-dialog.vue'
+  import createModule from './components/create-module-dialog.vue'
   export default {
     name: 'rule1',
     components: {
@@ -121,6 +121,7 @@
         row.originModulePriority = row.modulePriority
         this.$set(row, 'edit', true)
       },
+      // 删除模块
       async deleteModule (row, index) {
         this.$confirm('是否确认要删除此模块？', '确认信息', {
           distinguishCancelAndClose: true,
@@ -133,7 +134,7 @@
           })
           if (data.result === 1) {
             this.$message({
-              type: 'info',
+              type: 'success',
               message: '删除成功'
             });
             this.modules.splice(index, 1)
@@ -180,6 +181,7 @@
           this.expandRowKeys.push(row.id)
         }
       },
+      // 表格配置相关
       rowKeyFunction (row) {
         return row.id
       }
@@ -205,11 +207,8 @@
   }
 }
 .create-module-button {
-  position: fixed;
-  width: 120px;
-  right: 50px;
-  bottom: 0px;
-  padding-bottom: 30px;
+  text-align: right;
+  padding-right: 30px;
 }
 </style>
 <style lang="scss">

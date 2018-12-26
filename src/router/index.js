@@ -8,18 +8,17 @@ Vue.use(Router)
 export const constantRouterMap = [
   { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
-
-  // {
-  //   path: '/',
-  //   component: Layout,
-  //   redirect: '/rule/preselection',
-  //   name: 'Dashboard',
-  //   hidden: true,
-  //   children: [{
-  //     path: 'dashboard',
-  //     component: () => import('@/views/dashboard/index')
-  //   }]
-  // },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    name: 'Dashboard',
+    hidden: true,
+    children: [{
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index')
+    }]
+  },
   {
     path: '/rule',
     component: Layout,
@@ -28,7 +27,7 @@ export const constantRouterMap = [
         path: 'preselection',
         component: () => import('@/views/rule/preselection.vue'),
         name: 'preselection',
-        meta: { title: 'preselection', icon: 'icon-xinfengtianchong' }
+        meta: { title: 'preselection', icon: 'icon-guizeyinqing' }
       }
     ]
   },
@@ -40,22 +39,22 @@ export const constantRouterMap = [
         path: 'casemarking',
         component: () => import('@/views/rule/casemarking.vue'),
         name: 'casemarking',
-        meta: { title: 'casemarking', icon: 'icon-xinfengtianchong' }
+        meta: { title: 'casemarking', icon: 'icon-guize1' }
       },
     ]
   },
-  {
-    path: '/rule',
-    component: Layout,
-    children: [
-      {
-        path: 'test',
-        component: () => import('@/views/rule/test.vue'),
-        name: 'test',
-        meta: { title: 'test', icon: 'icon-xinfengtianchong' }
-      },
-    ]
-  },
+  // {
+  //   path: '/rule',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'test',
+  //       component: () => import('@/views/rule/test.vue'),
+  //       name: 'test',
+  //       meta: { title: 'test', icon: 'icon-guize1' }
+  //     },
+  //   ]
+  // },
   {
     path: '/config',
     component: Layout,
@@ -64,7 +63,7 @@ export const constantRouterMap = [
         path: 'variables',
         component: () => import('@/views/help/index.vue'),
         name: 'config',
-        meta: { title: '配置', icon: 'icon-xinfengtianchong' }
+        meta: { title: '配置', icon: 'icon-config-rule' }
       },
     ]
   },

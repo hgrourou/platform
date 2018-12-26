@@ -56,11 +56,10 @@
           if (valid) {
             try {
               this.isLoading = true
-              let array = []
-              array.push(this.form)
-              let { data } = await createModule(array)
+              let { data } = await createModule(this.form)
               this.isLoading = false
               if (data.result === 1) {
+                this.form.id = data.resultContent.id
                 this.$message.success('创建模板成功!')
                 this.$emit('createSuccess', this.form)
               } else {
