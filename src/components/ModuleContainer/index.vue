@@ -315,14 +315,45 @@
         })
       },
       upLine (index) {
-        let item = this.dataList[index]
-        this.$set(this.dataList, index, this.dataList[index - 1])
-        this.$set(this.dataList, index - 1, item)
+        let item = this.rules[index]
+        this.$set(this.rules, index, this.rules[index - 1])
+        this.$set(this.rules, index - 1, item)
       },
       downLine (index) {
-        let item = this.dataList[index]
-        this.$set(this.dataList, index, this.dataList[index + 1])
-        this.$set(this.dataList, index + 1, item)
+        let item = this.rules[index]
+        this.$set(this.rules, index, this.rules[index + 1])
+        this.$set(this.rules, index + 1, item)
+      },
+      deleteLine (item, index) {
+        this.$confirm('是否确认要删除此条件？', '确认信息', {
+          distinguishCancelAndClose: true,
+          confirmButtonText: '删除',
+          cancelButtonText: '放弃删除'
+        })
+        .then(async () => {
+          
+          let { data } = await deleteRule({
+            id: item.id
+          })
+          if (data.result === 1) {
+            this.rules.splice(index, 1)
+            this.$message({
+            type: 'info',
+            message: '删除'
+          });
+          } else {
+            this.$message.error('删除失败')
+          }
+          
+        })
+        .catch(action => {
+          this.$message({
+            type: 'info',
+            message: action === 'cancel'
+              ? '取消删除'
+              : '停留在当前页面'
+          })
+        });
       },
       // 获取规则后, 处理数据,然后显示在页面上
       processData () {
