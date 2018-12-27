@@ -39,7 +39,7 @@
             <el-button type="success" @click="downModule(scope.row, scope.$index)" size="small" :disabled="scope.$index === modules.length - 1"><i class="iconfont icon-xiangxiazhanhang"></i></el-button>
           </template>
         </el-table-column>
-        <el-table-column label="action" width="180">
+        <el-table-column label="操作" width="180">
           <template slot-scope="scope">
             <el-button v-if="scope.row.edit" type="success" @click="confirmEdit(scope.row)" size="small" icon="el-icon-circle-check-outline">Ok</el-button>
             <el-button v-else type="primary" @click='editModuleName(scope.row)' size="small" icon="el-icon-edit">Edit</el-button>

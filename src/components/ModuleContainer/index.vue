@@ -13,7 +13,7 @@
       <el-col :span="4">
         变量
       </el-col>
-      <el-col :span="4">
+      <el-col :span="3">
         判断
       </el-col>
       <el-col :span="4">
@@ -22,7 +22,7 @@
       <el-col :span="3">
         操作(Dun_flag)
       </el-col>
-      <el-col :span="6">
+      <el-col :span="6" :offset="1">
         配置
       </el-col>
     </el-row>
@@ -52,7 +52,7 @@
           </el-select>
           
         </el-col>
-        <el-col :span="4">
+        <el-col :span="3">
           <el-select size="small" v-model="item.check" placeholder="请选择判断关系" class="error-border">
             <el-option label="==" value="=="></el-option>
             <el-option label=">" value=">"></el-option>
@@ -69,7 +69,7 @@
             <el-option value="0" label="不入催"></el-option>
           </el-select>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="6" :offset="1">
           <div>
             <el-button size="small" @click="addChild(item)"> <i class="el-icon-plus"></i> </el-button>
             <el-button size="small" @click="upLine($index)" :disabled="$index === 0"><i class="iconfont icon-xiangshangzhanhang"></i></el-button>
@@ -109,7 +109,7 @@
             </el-select>
             
           </el-col>
-          <el-col :span="4">
+          <el-col :span="3">
             <el-select size="small" v-model="subitem.check" placeholder="请选择判断关系" class="error-border">
               <el-option label="==" value="=="></el-option>
               <el-option label=">" value=">"></el-option>
@@ -120,7 +120,7 @@
           <el-col :span="4">
             <el-input size="small" v-model="subitem.number" style="width: 80%;" class="error-border"></el-input>
           </el-col>
-          <el-col :span="5" :offset="3">
+          <el-col :span="6" :offset="4">
             <div>
               <el-button size="small" @click="upChild(item.children, index)" :disabled="index === 0"><i class="iconfont icon-xiangshangzhanhang"></i></el-button>
               <el-button size="small" @click="downChild(item.children, index)" :disabled="index === item.children.length - 1"><i class="iconfont icon-xiangxiazhanhang"></i></el-button>
