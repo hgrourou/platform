@@ -51,6 +51,7 @@
     </div>
     <create-module
       :show-dialog="showCreateModule"
+      :module-type="moduleType"
       @cancelDialog = "showCreateModule = false"
       @createSuccess = "createModuleSuccess"
     ></create-module>

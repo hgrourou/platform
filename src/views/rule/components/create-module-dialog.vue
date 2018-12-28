@@ -34,8 +34,7 @@
         isLoading: false,
         form: {
           moduleName: '',
-          modulePriority: '',
-          moduleType: 1
+          modulePriority: ''
         },
         rules: {
           moduleName: [
@@ -49,13 +48,14 @@
         }
       }
     },
-    props: ['showDialog'],
+    props: ['showDialog', 'moduleType'],
     methods: {
       createModule () {
         this.$refs['form'].validate( async (valid) => {
           if (valid) {
             try {
               this.isLoading = true
+              this.form.moduleType = this.moduleType
               let { data } = await createModule(this.form)
               this.isLoading = false
               if (data.result === 1) {
