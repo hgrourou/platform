@@ -44,6 +44,18 @@ export const constantRouterMap = [
       },
     ]
   },
+  {
+    path: '/rule',
+    component: Layout,
+    children: [
+      {
+        path: 'mode',
+        component: () => import('@/views/mode/index.vue'),
+        name: 'mode',
+        meta: { title: '分案方式及系数', icon: 'icon-guize1' }
+      },
+    ]
+  },
   // {
   //   path: '/rule',
   //   component: Layout,

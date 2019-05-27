@@ -80,7 +80,8 @@ module.exports = {
         // proxy: 'http://collectsub.ppdapi.com', // string | Object
         proxy: {
             '/h5':{
-                target: 'http://collectsub.ppdapi.com',
+                // target: 'http://collectsub.ppdapi.com',
+                target: 'http://10.114.31.134:8080',
                 changeOrigin:true
             }
         },
