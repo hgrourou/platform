@@ -28,7 +28,7 @@ export const constantRouterMap = [
         path: 'preselection',
         component: () => import('@/views/rule/preselection.vue'),
         name: 'preselection',
-        meta: { title: 'preselection', icon: 'icon-guizeyinqing' }
+        meta: { title: '案件预选', icon: 'icon-guizeyinqing' }
       }
     ]
   },
@@ -40,7 +40,7 @@ export const constantRouterMap = [
         path: 'casemarking',
         component: () => import('@/views/rule/casemarking.vue'),
         name: 'casemarking',
-        meta: { title: 'casemarking', icon: 'icon-guize1' }
+        meta: { title: '案件标记', icon: 'icon-guize1' }
       },
     ]
   },
